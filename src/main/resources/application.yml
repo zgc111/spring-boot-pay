@@ -1,7 +1,7 @@
 spring:
     datasource:
       username: root
-      password: root
+      password: 123456
       url: jdbc:mysql://127.0.0.1:3306/alipay?serverTimezone=GMT%2B8&characterEncoding=utf-8
       driver-class-name: com.mysql.cj.jdbc.Driver
 
@@ -13,4 +13,4 @@ spring:
       show-sql: true
 
 server:
-  port: 8080
+  port: 10002

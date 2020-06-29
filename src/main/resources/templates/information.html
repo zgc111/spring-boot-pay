@@ -31,13 +31,14 @@
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th style="text-align: center">订单ID号</th>
+                    <th style="text-align: center" >订单ID号</th>
                     <th style="text-align: center">用户名</th>
                     <th style="text-align: center">商品名称</th>
                     <th style="text-align: center">支付宝交易号</th>
                     <th style="text-align: center">商户订单号</th>
                     <th style="text-align: center">付款金额</th>
                     <th style="text-align: center">是否完成付款</th>
+                    <th style="text-align: center">操作</th>
                 </tr>
                 </thead>
 
@@ -50,12 +51,32 @@
                     <th style="text-align: center">[[${orderallOne.out_trade_no}]]</th>
                     <th style="text-align: center;color: green;">[[${orderallOne.money}]]</th>
                     <th style="text-align: center;color: green;" th:if="${orderallOne.play==1}">已付款</th>
-                    <th style="text-align: center;color: red;" th:if="${orderallOne.play!=1}">未付款</th>
+                    <th style="text-align: center;color: red;" th:if="${orderallOne.play==2}">未付款</th>
+                    <th style="text-align: center;color: red;" th:if="${orderallOne.play==3}">已退款</th>
+                    <th style="text-align: center"><a th:href="@{/refund(id=${orderallOne.id})}">退款</a></th>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<!--<script>-->
+    <!--function refund() {-->
+        <!--var id = document.getElementById("reId");-->
+       <!--$.ajax({-->
+           <!--url:"/refund",    //请求的url地址-->
+           <!--dataType:"json",   //返回格式为json-->
+           <!--// async:true,//请求是否异步，默认为异步，这也是ajax重要特性-->
+           <!--data:{"id":id},    //参数值-->
+           <!--type:"POST",   //请求方式-->
+           <!--error:function(){-->
+                <!--alert("发生异常，请刷新重试！")-->
+           <!--},-->
+           <!--success:function(req){-->
+              <!--console.log("成功！")-->
+           <!--}-->
+       <!--})-->
+    <!--}-->
+<!--</script>-->
 </body>
 </html>
